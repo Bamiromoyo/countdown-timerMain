@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+<style>
+    .project-image{
+       width: 400px;
+       border-radius: 10px;
+       display: block;
+       margin-right: 10px;
+       margin-left: 10px;
+        
+    }
+    .project-title{
+        letter-spacing:3px;
+        word-spacing:1px ;
+        font-family:Arial;
+        font-size: 20px;
+        color: rgb(146, 238, 245);
+        font-weight: bold;
+    }
+    .project-deadline{
+        word-spacing: 1px;
+        letter-spacing: 3px;
+        font-family: Arial;
+        font-size: 13.5px;
+        color:rgb(215, 225, 228);
+        font-weight: bold;
+        word-wrap: break-word;
+      
+    }
+    .project-text{
+        word-spacing:0.5px ;
+        letter-spacing: 2.5px;
+        font-family: Arial;
+        color: rgb(143, 166, 177);
+        font-size: 12px;
+
+    }
+    .spaces{
+background-color: rgb(11, 11, 13);
+margin: 5px;
+
+
+
+    }
+    .timer{
+       
+       font-family: Arial;
+     
+    }
+</style>
+</head>
+<body style="background-color: rgb(13, 13, 28);">
+    <img class="project-image" src="iphone.jpg" alt="iphone img"/>
+     
+<p class="project-title">
+    OLD IPHONE GIVEAWAY
+</p>
+<p class="project-deadline">
+    Giveaway Ends On Wednesday, 6 
+    <br>March 2024 At 11:30 am
+</p>
+<p class="project-text">
+    Lorem ipsum dolor sit, amet consectetur adipising elit.
+   <br> Reprehenderit molestiae cum libero atque ut voluptate 
+   <br> qui consectetur aliquid incidunt voluptatem quos,
+   <br> dolore,non commodi quaerat aliquam eligendi,
+   <br> quisquam totam blanditis.
+</p>
+<p id="timer">
+    <table style="color: white;" class="timer">
+    <tr style="font-size: 30px;">
+        <td class="spaces" id="days" style="margin-left: 4px;">10</td>
+        <td class="spaces" id="hours">15</td>
+        <td class="spaces" id="minutes">21</td>
+        <td class="spaces" id="seconds">24</td>
+    </tr>
+    <tr style="font-family:Arial;">
+        <td class="spaces" style="margin-right: 10px;">DAYS&ensp;&ensp;&ensp;&ensp;&ensp;</td>
+        <td class="spaces">HOURS&ensp;&ensp;&ensp;&ensp;&ensp;</td>
+        <td class="spaces">MINS&ensp;&ensp;&ensp;&ensp;&ensp;</td>
+        <td class="spaces">SECS&ensp;&ensp;&ensp;&ensp;&ensp;</td>
+    </tr>
+</table>
+</p>
+<script>
+//set the countdown time
+var countDownDate = new Date();
+countDownDate.setDate(countDownDate.getDate() +10);
+countDownDate.setHours(countDownDate.getHours()+15);
+countDownDate.setMinutes(countDownDate.getMinutes() +24);
+countDownDate.setSeconds(countDownDate.getSeconds() +59);
+
+//update the countdown every 1 second
+var x= setInterval(function() {
+
+// Get the current date and time
+var now = new Date().getTime();
+
+//calculate the remaining time
+var distance = countDownDate-now;
+
+// Time calculations for days,hours,minutes and seconds
+var days= Math.floor(distance /(1000 * 60 * 60 * 24));
+var hours= Math.floor((distance % (1000 * 60 * 60 * 24))/ (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60 )) /(1000* 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the countdown timer
+document.getElementById("days").innerHTML=days;
+document.getElementById("hours").innerHTML=hours;
+document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("seconds").innerHTML=seconds;
+
+//If countdown is finished,write some text
+if (distance <0) {
+clearInterval(x);
+document.getElementById("timer").innerHTML="Expired";
+}
+}, 1000);
+</script>
+</body>
+</html>
+
